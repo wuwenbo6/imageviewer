@@ -20,6 +20,7 @@ import android.content.Context;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -252,8 +253,12 @@ class ImageViewerView extends RelativeLayout
     private void onClick(MotionEvent event, boolean isOverlayWasClicked) {
         if (overlayView != null && !isOverlayWasClicked) {
 
-            if (overlayView instanceof DefaultOverlayView && ((DefaultOverlayView)overlayView).getCircleProgressView().getProgress() != 100)
+            Log.e(getClass().getSimpleName(), "onClick: ----------------------progress = " +((DefaultOverlayView)overlayView).getCircleProgressView().getProgress());
+
+            if (overlayView instanceof DefaultOverlayView && ((DefaultOverlayView)overlayView).getCircleProgressView().getProgress() != 100) {
                 return;
+            }
+
 
             AnimationUtils.animateVisibility(overlayView);
             super.dispatchTouchEvent(event);
