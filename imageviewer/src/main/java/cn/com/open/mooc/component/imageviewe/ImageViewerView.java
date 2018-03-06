@@ -253,8 +253,6 @@ class ImageViewerView extends RelativeLayout
     private void onClick(MotionEvent event, boolean isOverlayWasClicked) {
         if (overlayView != null && !isOverlayWasClicked) {
 
-            Log.e(getClass().getSimpleName(), "onClick: ----------------------progress = " +((DefaultOverlayView)overlayView).getCircleProgressView().getProgress());
-
             if (overlayView instanceof DefaultOverlayView && ((DefaultOverlayView)overlayView).getCircleProgressView().getProgress() != 100) {
                 return;
             }
